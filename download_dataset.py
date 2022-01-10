@@ -1,6 +1,6 @@
 import gdown
 import os
-
+import wget
 def download_from_gd(gid,save_name,save_dir = 'datasets'):
     os.makedirs(save_dir,exist_ok=True)
     gdown.download('https://drive.google.com/uc?id=%s'%(gid), os.path.join(save_dir,save_name), quiet=False)
@@ -14,7 +14,7 @@ if __name__ == "__main__":
     os.system('mv RACE datasets/')
 
     # EQG-RACE
-    download_from_gd('1P42kHHTwzEzVUZ9t5T9A727ZzpWT8Hk-','EQG-RACE.tar.gz')
+    wget.download('https://github.com/jemmryx/EQG-RACE/raw/main/EQG-RACE.tar.gz','datasets/')
     os.system('tar zxvf datasets/EQG-RACE.tar.gz')
     os.system('mv key-race datasets/EQG-RACE')
 
